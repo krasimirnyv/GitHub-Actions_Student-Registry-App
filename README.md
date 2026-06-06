@@ -1,1 +1,1 @@
-# This repo is part of my CI/CD integration for the SoftUni's course
+# This repo is part of my CI/CD integration for the SoftUni's course DevOps for Developers
