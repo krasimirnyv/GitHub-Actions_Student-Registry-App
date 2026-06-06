@@ -60,3 +60,17 @@ jobs:
 
       - name: Run integration tests
         run: npm test
+
+  deploy:
+  
+    needs: build_test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Deploy to production
+        uses: JorgeLNJunior/render-deploy@v1.5.0
+        with:
+          service_id: ${{ secrets.SERVICE_ID }}
+          api_key: ${{ secrets.API_KEY }}
+          wait_deploy: true
